@@ -116,22 +116,18 @@ KentuckyStatedata <- function(){
 
 shinyServer(function(input, output) {
  output$distPlot1 <- renderPlotly({
-    input$go
     kentuckystateplot(isolate(input$variable))
   })
  
  output$data1 <- DT::renderDataTable({
-   input$go
    isolate(KentuckyStatedata())
  },options = list(pageLength = 10, dom = 'tip'),rownames=FALSE, style = "bootstrap")
 
  output$distPlot2 <- renderPlotly({
-    input$go
     Kentuckycountyplot(isolate(input$County),isolate(input$variable))
   })
   
   output$data2 <- DT::renderDataTable({
-    input$go
     KentuckyCountydata(isolate(input$County))
     },options = list(pageLength = 10, dom = 'tip'),rownames=FALSE,style = "bootstrap")
   
