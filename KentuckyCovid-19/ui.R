@@ -42,9 +42,15 @@ shinyUI(fluidPage(
 ), 
 
 selectInput("variable", "What would you like to see?",
-            list("cases","deaths"))
+            list("cases","deaths")),
+tags$head(
+  tags$style(HTML('#go{background-color:orange}'))
 ),
-
+            actionButton(
+              inputId = "go",
+              label = "Show Results"
+            )
+),
 
     mainPanel(
       tags$style(HTML("
